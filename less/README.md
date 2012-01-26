@@ -12,7 +12,7 @@ existing `build/tasks/less` folder to avoid potential conflicts.
 ### Configuration
 
 Inside your `build/config.js` file, add a section named `less` and specify the
-less parser options, as well as the files you wish to process.
+less parser options, as well as the files you wish to compile.
 
 ``` javascript
 less: {
@@ -29,7 +29,7 @@ less: {
 
 ```
 The `paths` option specifies directories to scan for @import directives.
-The `compress` option conditionally invokes clean-css on the CSS output of LESS.
+The `compress` option conditionally invokes clean-css to minify the LESS compiled CSS.
 
 ### Usage ###
 
