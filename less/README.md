@@ -28,18 +28,15 @@ less: {
 },
 
 ```
-The path option will add
-The compress option conditionally invokes clean-css on the CSS output of less.
+The `paths` option specifies directories to scan for @import directives.
+The `compress` option conditionally invokes clean-css on the CSS output of LESS.
 
 ### Usage ###
 
 At the bottom of your `build/config.js` you will see `registerTask` containing
-a list of build tasks to run, simply add jst in this space-separated list.
+a list of build tasks to run, simply add less in this space-separated list.
 
 ``` javascript
 // An example registration might look something like this
-task.registerTask("default", "clean ... concat jst");
+task.registerTask("default", "clean ... less");
 ```
-
-Typically the jst task will be run before concatentation and minification
-allowing this generated templates file to be included in the former tasks.
