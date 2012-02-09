@@ -17,6 +17,9 @@ task.registerBasicTask("less", "Compile LESS files to CSS and minify.", function
   // initialize LESS parser
   var parser = new(less.Parser)(data.options);
 
+	// make sure task runs until parser is completely finished (imports are processed asynchronously)
+	var taskDone = this.async();
+
   // iterate over files to compile/compress
   Object.keys(data.files).forEach(function(dest) {
 
@@ -33,6 +36,8 @@ task.registerBasicTask("less", "Compile LESS files to CSS and minify.", function
       }
 
       file.write(dest,css);
+
+			taskDone();
     });
 
   });
